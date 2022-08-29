@@ -14,43 +14,17 @@ interface propsType{
    title : string;
    category : string[];
    filter : { title : string; category : string;  }[];
+   items : { name: string; author: string; type: string; link: string; }[];
 }
  
 interface stateType{
    title : string;
    category : string[];
    filter : { title : string; category : string;  }[];
+   items : { name: string; author: string; type: string; link: string; }[];
    selected : [];
    page : number;
 }
-const dummy =[
-{
-name:"Ethereum Historical Price Data",
-author:"0xc4a391C300987FDe197B2072f7837c5eEef2dcAC",
-type:"Data",
-link:"https://market.oceanprotocol.com/asset/did:op:c2874ded256d80537b31c369f985a6df9b3636dba7639ea7e628ea5aee003e10"
-},{
-name:"🧞 Transport Genie Vault",
-author:"🚚 Transport Genie",
-type:"Data",
-link:"https://market.oceanprotocol.com/asset/did:op:39b9fa755de838a1a912e8589f64ce1601157cc2f1418ee9a3e77b7c7342f986"
-},{
-name:"red_caps",
-author:"@mariosasko",
-type:"Data",
-link:"https://huggingface.co/datasets/red_caps",
-},{
-name:"microsoft/deberta-base",
-author:"Microsoft",
-type:"Model",
-link:"https://huggingface.co/microsoft/deberta-base",
-},{
-name:"bert-base-uncased",
-author:"Jacob Devlin and Ming-Wei Chang and Kenton Lee and Kristina Toutanov",
-type:"Model",
-link:"https://huggingface.co/bert-base-uncased"
-},]
- 
 export default class Module extends React.Component<propsType, stateType>{
    constructor(props : any){
        super(props)
@@ -58,8 +32,10 @@ export default class Module extends React.Component<propsType, stateType>{
                       title : props.title,
                       category : props.category,
                       filter : props.filter,
+                      items : props.items,
                       selected : [],
-                      page : 1
+                      page : 1,
+
                    }
    }
   
@@ -107,7 +83,7 @@ export default class Module extends React.Component<propsType, stateType>{
        console.log(state)
        return (<>
            <div className='sm:w-full md:w-4/6 h-full flex-grow absolute right-0 overflow-scroll duration-1000'>
-           <h1 className=' px-10 pt-4 text-lg text-left font-medium'>{state.title}  <span className=' pl-4 text-gray-400'>{state.filter.length}</span></h1>
+           <h1 className=' px-10 pt-4 text-lg text-left font-medium'>{state.title}  <span className=' pl-4 text-gray-400'>{state.items.length}</span></h1>
            {/* <form className="group relative">
                <svg width="20" height="20" fill="currentColor" className="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-primary" aria-hidden="true">
                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
@@ -115,7 +91,7 @@ export default class Module extends React.Component<propsType, stateType>{
                <input className="focus:ring-2 focus:ring-primary focus:shadow-2xl focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter by name" placeholder="Filter by name"/>
            </form> */}
                <div className='p-4'>
-                   <AssetGrid item={dummy}/> {/* this is more concept */}
+                   <AssetGrid item={state.items}/> {/* this is more concept */}
                </div>
            </div>
        </>)
