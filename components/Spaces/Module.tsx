@@ -36,7 +36,6 @@ export default class Module extends React.Component<propsType, stateType>{
                       items : props.items,
                       selected : [],
                       page : 1,
-
                    }
    }
   
@@ -73,10 +72,10 @@ export default class Module extends React.Component<propsType, stateType>{
        return (<>
            <div className='sm:w-full md:w-4/6 h-full flex-grow absolute right-0 overflow-scroll duration-700'>
                 <div className='flex'>
-                    <div className='w-1/3'>
-                        <h1 className=' px-10 pt-7 text-lg text-left font-medium'>{state.title}  <span className=' pl-4 text-gray-400'>{state.items.length}</span></h1>
+                    <div className='w-auto'>
+                        <h1 className=' pl-10 pr-4 pt-7 text-lg text-left font-medium'>{state.title}  <span className=' pl-4 text-gray-400'>{state.items.length}</span></h1>
                     </div>
-                    <div className={`md:hidden flex items-center rounded-xl bg-light-white mt-6 w-1/3 border-dashed`}>
+                    <div className={`flex items-center rounded-xl bg-light-white mt-6 w-1/3`}>
                     <label className="relative block w-full">
                         <span className={`absolute inset-y-0 left-0 flex items-center pl-3`}>
                             <BsSearch className="block float-left cursor-pointer mr-2"/>
