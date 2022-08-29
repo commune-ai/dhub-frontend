@@ -23,6 +23,33 @@ interface stateType{
    selected : [];
    page : number;
 }
+const dummy =[
+{
+name:"Ethereum Historical Price Data",
+author:"0xc4a391C300987FDe197B2072f7837c5eEef2dcAC",
+type:"Data",
+link:"https://market.oceanprotocol.com/asset/did:op:c2874ded256d80537b31c369f985a6df9b3636dba7639ea7e628ea5aee003e10"
+},{
+name:"🧞 Transport Genie Vault",
+author:"🚚 Transport Genie",
+type:"Data",
+link:"https://market.oceanprotocol.com/asset/did:op:39b9fa755de838a1a912e8589f64ce1601157cc2f1418ee9a3e77b7c7342f986"
+},{
+name:"red_caps",
+author:"@mariosasko",
+type:"Data",
+link:"https://huggingface.co/datasets/red_caps",
+},{
+name:"microsoft/deberta-base",
+author:"Microsoft",
+type:"Model",
+link:"https://huggingface.co/microsoft/deberta-base",
+},{
+name:"bert-base-uncased",
+author:"Jacob Devlin and Ming-Wei Chang and Kenton Lee and Kristina Toutanov",
+type:"Model",
+link:"https://huggingface.co/bert-base-uncased"
+},]
  
 export default class Module extends React.Component<propsType, stateType>{
    constructor(props : any){
@@ -88,7 +115,7 @@ export default class Module extends React.Component<propsType, stateType>{
                <input className="focus:ring-2 focus:ring-primary focus:shadow-2xl focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter by name" placeholder="Filter by name"/>
            </form> */}
                <div className='p-4'>
-                   <AssetGrid/> {/* this is more concept */}
+                   <AssetGrid item={dummy}/> {/* this is more concept */}
                </div>
            </div>
        </>)
