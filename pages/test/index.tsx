@@ -28,7 +28,7 @@ const dummy_data =[
     type:"Model",
     link:"https://huggingface.co/bert-base-uncased"
     },]
-const dummy_filter = [{title : "bitconnect", category : "connect"},{title : "bitconnect", category : "byte"}]
+const dummy_filter = [{title : "bitconnect", category : "connect"},{title : "biiiiiiitttttttcooooooonnnnnnectttttt", category : "byte"}]
 
 function Test(): ReactElement {
    return (
